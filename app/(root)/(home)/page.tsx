@@ -1,3 +1,5 @@
+import MeetingCard from "@/components/MeetingCard";
+import MeetingTypeList from "@/components/MeetingTypeList";
 import React from 'react'
 
 const Home = () => {
@@ -18,6 +20,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <MeetingTypeList />
+      {/* <MeetingCard /> */}
     </section>
   )
 }
