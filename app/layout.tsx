@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Nexus",
   description: "A Video Conferencing Platform built with Stream & Next.js",
+  icons: {
+    icon: "/icons/logo.svg"
+  }
 };
 
 export default function RootLayout({
