@@ -19,7 +19,7 @@ const PersonalRoom = () => {
 
   const { user } = useUser();
   const meetingId = user?.id;
-  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}`
+  const meetingLink = `/meeting/${meetingId}`
   const client = useStreamVideoClient();
   const router = useRouter();
 
