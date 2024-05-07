@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   description: "A Video Conferencing Platform built with Stream & Next.js",
   icons: {
     icon: "/icons/logo.svg"
-  }
+  },
+  manifest: '/manifest.json'
 };
 
 export default function RootLayout({
