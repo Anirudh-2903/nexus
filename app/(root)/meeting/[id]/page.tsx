@@ -1,12 +1,15 @@
+//@ts-nocheck
+
 "use client";
+
 
 import React, { useState } from 'react'
 import Loader from "@/components/Loader";
-import MeetingRoom from "@/components/MeetingRoom";
 import MeetingSetup from "@/components/MeetingSetup";
 import { useGetCallById } from "@/hooks/useGetCallById";
 import { useUser } from "@clerk/nextjs";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
+import MeetingRoom from "@/components/MeetingRoom";
 
 const Meeting = ({ params: {id} }: { params: {id: string} }) => {
 

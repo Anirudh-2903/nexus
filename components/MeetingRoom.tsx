@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react'
 import { cn } from "@/lib/utils";
 import { CallControls, CallParticipantsList, CallStatsButton, CallingState, PaginatedGridLayout, SpeakerLayout, useCallStateHooks } from "@stream-io/video-react-sdk";
@@ -16,7 +18,7 @@ import EndCallButton from './EndCallButton';
 import Loader from "./Loader";
 
 
-type CallLayoutType = 'speaker-left' | 'speaker-right' | 'grid'
+type CallLayoutType = 'speaker-left' | 'speaker-right' | 'grid';
 
 const MeetingRoom = () => {
     const searchParams = useSearchParams();
