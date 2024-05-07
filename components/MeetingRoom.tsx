@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { LayoutList, Users } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
+import EndCallButton from './EndCallButton';
 import Loader from "./Loader";
 
 
@@ -28,7 +29,9 @@ const MeetingRoom = () => {
     const { useCallCallingState } = useCallStateHooks();
     const callingState = useCallCallingState();
 
-    if(callingState !== CallingState.JOINED) return <Loader />;
+    if(callingState !== CallingState.JOINED && callingState !== CallingState.LEFT ) return <Loader />;
+
+    if(callingState === CallingState.LEFT) return router.push('/');
 
     const CallLayout = () => {
         switch (layout) {
@@ -40,6 +43,7 @@ const MeetingRoom = () => {
                 return <SpeakerLayout participantsBarPosition="right" />;
         }
     }
+
 
     return (
         <section className="relative h-screen w-full overflow-hidden pt-4 text-white">
@@ -53,7 +57,6 @@ const MeetingRoom = () => {
             </div>
             <div className="fixed bottom-0 flex flex-wrap w-full items-center justify-center gap-5">
                 <CallControls onLeave={() => router.push("/")}/>
-
                 <DropdownMenu>
                     <div className="flex items-center">
                         <DropdownMenuTrigger className="cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4c535b]">
@@ -81,6 +84,7 @@ const MeetingRoom = () => {
                         <Users size={20} className="text-white" />
                     </div>
                 </button>
+                {isPersonalRoom && <EndCallButton /> }
             </div>
         </section>
     )
