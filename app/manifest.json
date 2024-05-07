@@ -10,6 +10,6 @@
             "type": "image/svg+xml"
         }
     ],
-    "start_url": "/sign-in",
+    "start_url": "/sign-up",
     "display": "standalone"
 }

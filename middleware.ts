@@ -2,7 +2,6 @@ import { auth, clerkMiddleware , createRouteMatcher } from "@clerk/nextjs/server
 
 
 const protectedRoutes = createRouteMatcher([
-  "/",
   "/upcoming",
   "/previous",
   "/recordings",
@@ -14,6 +13,7 @@ const protectedRoutes = createRouteMatcher([
 
 export default clerkMiddleware((auth,req) => {
   if (protectedRoutes(req)) auth().protect();
+  if("/") auth().redirectToSignIn();
 });
 
 export const config = {
