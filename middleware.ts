@@ -9,6 +9,10 @@ const protectedRoutes = createRouteMatcher([
   "/meeting(.*)"
 ]);
 
+const ignoreRoutes = createRouteMatcher([
+  "/assets/icons/logo.png",
+])
+
 export default clerkMiddleware((auth,req) => {
   if (protectedRoutes(req)) auth().protect();
 });
