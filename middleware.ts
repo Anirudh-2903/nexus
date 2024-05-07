@@ -1,6 +1,8 @@
 import { auth, clerkMiddleware , createRouteMatcher } from "@clerk/nextjs/server";
 
+
 const protectedRoutes = createRouteMatcher([
+  "/",
   "/upcoming",
   "/previous",
   "/recordings",
@@ -8,9 +10,7 @@ const protectedRoutes = createRouteMatcher([
   "/meeting(.*)"
 ]);
 
-const ignoreRoutes = createRouteMatcher([
-  "/assets/icons/logo.png",
-])
+
 
 export default clerkMiddleware((auth,req) => {
   if (protectedRoutes(req)) auth().protect();

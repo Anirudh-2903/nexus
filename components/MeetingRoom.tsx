@@ -31,7 +31,7 @@ const MeetingRoom = () => {
     const { useCallCallingState } = useCallStateHooks();
     const callingState = useCallCallingState();
 
-    if(callingState !== CallingState.JOINED && callingState !== CallingState.LEFT ) return <Loader />;
+    if(callingState === CallingState.JOINING) return <Loader />;
 
     if(callingState === CallingState.LEFT) return router.push('/');
 
