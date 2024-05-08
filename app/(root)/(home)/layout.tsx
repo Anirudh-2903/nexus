@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "Nexus",
     description: "A Video Conferencing Platform built with Stream & Next.js",
     icons: {
-      icon: "/icons/logo.svg"
+      icon: "/images/logo.png"
     }
   };
 
