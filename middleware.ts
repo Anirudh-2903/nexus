@@ -15,7 +15,7 @@ const protectedRoutes = createRouteMatcher([
 export default clerkMiddleware(async (auth, req) => {
   if (protectedRoutes(req)) {
     // @ts-ignore
-    await auth.protect()
+    await auth().protect()
   }
 })
 
