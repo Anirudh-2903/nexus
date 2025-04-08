@@ -1,12 +1,35 @@
 import MeetingTypeList from "@/components/MeetingTypeList";
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
 const Home = () => {
+  const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
 
-  const now = new Date();
-  const time = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
-  const date = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  useEffect(() => {
+    // This will only run on the client side
+    const updateTimeAndDate = () => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString('en-IN', { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        hour12: true 
+      }));
+      setDate(now.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      }));
+    };
 
+    // Update immediately
+    updateTimeAndDate();
+    
+    // Update every minute to keep time current
+    const interval = setInterval(updateTimeAndDate, 60000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className='flex flex-col size-full gap-10 text-white'>
